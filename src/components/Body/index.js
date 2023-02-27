@@ -4,7 +4,6 @@ import CardTitle from "../Card/CardTitle";
 import { DoubleSidedCard, SingleSidedCard } from "./Body.style";
 import CardArtModal from "./CardArtModal";
 
-
 function Body() {
   const [show, setShow] = useState(false);
   const [card, setCardContext] = useState(null);
@@ -12,7 +11,7 @@ function Body() {
   const fetchData = async () => {
     try {
       const res = await fetch(
-        "https://api.scryfall.com/cards/random?q=set%3Amid"
+        "https://api.scryfall.com/cards/random?q=set%3Aneo"
       );
       const fetchedData = await res.json();
       setCardContext(fetchedData);
@@ -24,10 +23,10 @@ function Body() {
   useEffect(() => {
     fetchData();
   }, []);
-  
 
   return (
     <>
+      <button onClick={fetchData}>New Card</button>
       {card?.card_faces ? (
         <>
           {card?.card_faces.map((cardface, id) => {
@@ -38,19 +37,14 @@ function Body() {
                   <div className="card-block">
                     <CardImage key={id} card={cardface} />
                     <div>
-                    
-                    
-                    
-                      <button onClick={() => setShow(true)}>Bigger</button>
-                      
+                      <button onClick={() => setShow(true)}>Enlarge Art</button>
+
                       <CardArtModal
                         modalCard={cardface}
                         onClose={() => setShow(false)}
                         show={show}
                       />
-                      
-                      
-                      
+
                       <p>{cardface?.type_line}</p>
                       <p>{card?.mana_cost}</p>
                       <p>{card?.set_name}</p>
@@ -77,7 +71,7 @@ function Body() {
             <div className="card-block">
               <CardImage card={card} />
               <div>
-                <button onClick={() => setShow(true)}>Bigger</button>
+                <button onClick={() => setShow(true)}>Enlarge Art</button>
                 <CardArtModal
                   modalCard={card}
                   onClose={() => setShow(false)}

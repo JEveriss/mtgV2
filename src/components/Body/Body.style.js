@@ -35,7 +35,7 @@ export const Modal = styled.div`
   }
 
   .modalcontent {
-    width: 90%;
+    width: 100vh;
     background-color: #fff;
     border: 2px solid #000;
   }
