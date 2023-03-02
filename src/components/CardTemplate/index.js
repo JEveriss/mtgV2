@@ -3,12 +3,16 @@ import CardImage from "../Card/CardImage";
 import CardTitle from "../Card/CardTitle";
 import { SingleSidedCard } from "../Body/Body.style";
 import CardArtModal from "../Body/CardArtModal";
+import SetSelector from "../SetSelector";
 
 function CardTemplate({ fetchData, cardData }) {
   const [show, setShow] = useState(false);
-
+console.log(cardData)
   return (
     <div>
+    
+    <SetSelector card={cardData}/>
+    
       <button onClick={fetchData}>New Card</button>
 
       <CardTitle title={cardData?.name} />

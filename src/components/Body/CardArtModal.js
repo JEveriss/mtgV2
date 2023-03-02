@@ -8,7 +8,11 @@ const CardArtModal = (props) => {
 
   return (
     <Modal onClick={props.onClose}>
-      <div className="modalcontent" onClick={(e) => e.stopPropagation()}>
+      <div
+        className={
+          props.modalCard?.type_line === "Enchantment — Saga" ? "saga" : "modalcontent"
+        }
+        onClick={(e) => e.stopPropagation()}>
         <span className="modalheader">
           <div>
             <h1 className="modaltitle">{props.modalCard?.name}</h1>

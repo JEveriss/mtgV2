@@ -10,7 +10,7 @@ function App() {
   const fetchData = async () => {
     try {
       const res = await fetch(
-        "https://api.scryfall.com/cards/random?q=set%3Amid"
+        "https://api.scryfall.com/cards/random?q=set%3Aneo"
       );
       const fetchedData = await res.json();
       setCardContext(fetchedData);
@@ -23,11 +23,10 @@ function App() {
     fetchData();
   }, []);
   
-  console.log(cardContext);
-  
   return (
     <div className="app">
       <Header />
+      
       {cardContext ? (
         cardContext.card_faces ? (
           cardContext?.card_faces.map((cardFace) => {

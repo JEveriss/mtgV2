@@ -3,14 +3,12 @@ import styled from "styled-components";
 export const SingleSidedCard = styled.div`
   .card-block {
     display: flex;
-    justify-content: space-evenly;
   }
-  `;
+`;
 
 export const DoubleSidedCard = styled.div`
   .card-block {
     display: flex;
-    justify-content: space-evenly;
   }
 `;
 
@@ -35,11 +33,18 @@ export const Modal = styled.div`
     width: 100%;
   }
 
+  .saga {
+    width: 32vh;
+    background-color: #fff;
+    border: 2px solid #000;
+  }
+
   .modalcontent {
     width: 100vh;
     background-color: #fff;
     border: 2px solid #000;
   }
+
   .modalheader {
     display: flex;
     justify-content: space-between;
