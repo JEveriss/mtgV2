@@ -1,14 +1,12 @@
 import React from "react";
 import { Modal } from "./Body.style";
 
-
 const CardArtModal = (props) => {
 
   if (!props.show) {
     return null;
   }
 
-  console.log("this one:", props.modalCard);
   return (
     <Modal onClick={props.onClose}>
       <div className="modalcontent" onClick={(e) => e.stopPropagation()}>

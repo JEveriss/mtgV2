@@ -1,34 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import "./App.css";
-import Body from "../components/Body";
-// import DataContext from "../context/DataContext";
+import CardTemplate from "../components/CardTemplate";
+import LoadingSpinner from "../components/Spinner";
 
 function App() {
-  // const [cardContext, setCardContext] = useState(null);
+  const [cardContext, setCardContext] = useState(null);
 
-  // const fetchData = async () => {
-  //   try {
-  //     const res = await fetch(
-  //       "https://api.scryfall.com/cards/random?q=set%3Aone"
-  //     );
-  //     const fetchedData = await res.json();
-  //     setCardContext(fetchedData);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  const fetchData = async () => {
+    try {
+      const res = await fetch(
+        "https://api.scryfall.com/cards/random?q=set%3Amid"
+      );
+      const fetchedData = await res.json();
+      setCardContext(fetchedData);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
+  useEffect(() => {
+    fetchData();
+  }, []);
+  console.log(cardContext?.card_faces);
   return (
     <div className="app">
-      {/* <DataContext.Provider value={{ data: cardContext }}> */}
-        <Header />
-        <Body  />
-      {/* </DataContext.Provider> */}
+      <Header />
+      {cardContext ? (
+        cardContext.card_faces ? (
+          cardContext?.card_faces.map((cardFace) => {
+            return <CardTemplate fetchData={fetchData} cardData={cardFace} />;
+          })
+        ) : (
+          <CardTemplate fetchData={fetchData} cardData={cardContext} />
+        )
+      ) : (
+        <LoadingSpinner />
+      )}
     </div>
   );
 }
