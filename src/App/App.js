@@ -22,7 +22,9 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(cardContext?.card_faces);
+  
+  console.log(cardContext);
+  
   return (
     <div className="app">
       <Header />
