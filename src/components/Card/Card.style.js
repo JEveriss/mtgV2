@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const CardImageWrapper = styled.div`
-  margin-right: 2rem;
+img{
+  max-height:40rem;
+}
   .cardimage {
     border-radius: 4%;
     width: 100%;

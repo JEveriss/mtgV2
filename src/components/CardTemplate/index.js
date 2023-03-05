@@ -1,25 +1,24 @@
 import React, { useState } from "react";
 import CardImage from "../Card/CardImage";
 import CardTitle from "../Card/CardTitle";
-import { SingleSidedCard } from "../Body/Body.style";
+import { SingleSidedCard, TemplateWrapper } from "../Body/Body.style";
 import CardArtModal from "../Body/CardArtModal";
-import SetSelector from "../SetSelector";
+
 
 function CardTemplate({ fetchData, cardData }) {
   const [show, setShow] = useState(false);
-console.log(cardData)
+
   return (
-    <div>
-    
-    <SetSelector card={cardData}/>
+    <TemplateWrapper>
     
       <button onClick={fetchData}>New Card</button>
 
       <CardTitle title={cardData?.name} />
       <SingleSidedCard>
-        <div className="card-block">
+
           <CardImage card={cardData} />
-          <div>
+          
+          <div className="cardText">
             <button onClick={() => setShow(true)}>Enlarge Art</button>
 
             <p>{cardData?.type_line}</p>
@@ -42,9 +41,9 @@ console.log(cardData)
               </ul>
             )}
           </div>
-        </div>
+
       </SingleSidedCard>
-    </div>
+    </TemplateWrapper>
   );
 }
 export default CardTemplate;

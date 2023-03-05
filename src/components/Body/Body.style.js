@@ -1,15 +1,7 @@
 import styled from "styled-components";
 
 export const SingleSidedCard = styled.div`
-  .card-block {
-    display: flex;
-  }
-`;
-
-export const DoubleSidedCard = styled.div`
-  .card-block {
-    display: flex;
-  }
+  display: flex;
 `;
 
 export const Modal = styled.div`
@@ -22,7 +14,6 @@ export const Modal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.5s ease-out;
 
   button {
     border-radius: 0%;
@@ -53,5 +44,11 @@ export const Modal = styled.div`
   }
   .modaltitle {
     margin: 0;
+  }
+`;
+
+export const TemplateWrapper = styled.div`
+  .cardText {
+    margin-left: 2rem;
   }
 `;
