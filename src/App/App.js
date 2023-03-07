@@ -4,17 +4,20 @@ import "./App.css";
 import CardTemplate from "../components/CardTemplate";
 import LoadingSpinner from "../components/Spinner";
 import SetSelector from "../components/SetSelector";
+import ColourSelector from "../ColourSelector";
 
 function App() {
-  const [setName, setSetName] = useState("neo");
+  const [setName, setSetName] = useState();
   const [cardContext, setCardContext] = useState(null);
+  
+  const setColour = "r"
 
   const onSetChange = (e) => setSetName(e.target.value);
 
   const fetchData = async () => {
     try {
       const res = await fetch(
-        `https://api.scryfall.com/cards/random?q=set%3A${setName}`
+        `https://api.scryfall.com/cards/random?q=c%3A${setColour}+set%3A${setName}`
       );
       const fetchedData = await res.json();
       setCardContext(fetchedData);
@@ -38,6 +41,8 @@ function App() {
         setChange={onSetChange}
         setSetName={setSetName}
       />
+      
+      <ColourSelector/>
 
       {cardContext ? (
         cardContext.card_faces ? (
