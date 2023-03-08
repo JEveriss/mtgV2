@@ -4,10 +4,10 @@ import "./App.css";
 import CardTemplate from "../components/CardTemplate";
 import LoadingSpinner from "../components/Spinner";
 import SetSelector from "../components/SetSelector";
-import ColourSelector from "../ColourSelector";
+import ColourSelector from "../components/ColourSelector";
 
 function App() {
-  const [setName, setSetName] = useState();
+  const [setName, setSetName] = useState('neo');
   const [cardContext, setCardContext] = useState(null);
   
   const setColour = "r"
@@ -34,7 +34,6 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
 
       <SetSelector
         setName={setName}

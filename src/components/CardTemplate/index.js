@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import CardImage from "../Card/CardImage";
 import CardTitle from "../Card/CardTitle";
-import { SingleSidedCard, TemplateWrapper } from "../Body/Body.style";
-import CardArtModal from "../Body/CardArtModal";
+import { SingleSidedCard, TemplateWrapper } from "../Card/Card.style";
+import CardArtModal from "../CardArtModal/index"
 
 
 function CardTemplate({ fetchData, cardData }) {
