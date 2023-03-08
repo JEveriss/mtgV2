@@ -8,9 +8,9 @@ import ColourSelector from "../ColourSelector";
 
 function App() {
   const [setName, setSetName] = useState();
-  const [cardContext, setCardContext] = useState(null);
+  const [cardContext, setCardContext] = useState('khm');
   
-  const setColour = "r"
+  const setColour = "b"
 
   const onSetChange = (e) => setSetName(e.target.value);
 
