@@ -7,10 +7,10 @@ import SetSelector from "../components/SetSelector";
 import ColourSelector from "../components/ColourSelector";
 
 function App() {
-  const [setName, setSetName] = useState('neo');
-  const [cardContext, setCardContext] = useState(null);
+  const [setName, setSetName] = useState();
+  const [cardContext, setCardContext] = useState('khm');
   
-  const setColour = "r"
+  const setColour = "b"
 
   const onSetChange = (e) => setSetName(e.target.value);
 
