@@ -1,10 +1,10 @@
 import React from "react";
 import { SetColourWrapper } from "./ColourSelector.style";
-import w from "../assets/1-White.svg";
-import u from "../assets/2-Blue.svg";
-import b from "../assets/3-Black.svg";
-import r from "../assets/4-Red.svg";
-import g from "../assets/5-Green.svg";
+import w from "../../assets/1-White.svg";
+import u from "../../assets/2-Blue.svg";
+import b from "../../assets/3-Black.svg";
+import r from "../../assets/4-Red.svg";
+import g from "../../assets/5-Green.svg";
 
 // const wubrg = [
 //   { colour: "w" },

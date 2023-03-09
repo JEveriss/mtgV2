@@ -4,45 +4,33 @@ import { SetSelectorWrapper } from "./SetSelector.style";
 function SetSelector({ setName, setSetName }) {
   const onSetChange = (e) => setSetName(e.target.value);
 
-  // const sets = [{id: 1, set: "vow"}, {id: 2, set: "mid"}, {id: 3, set: "neo"},]
+  const setList = [
+    { id: 1, name: "vow" },
+    { id: 2, name: "mid" },
+    { id: 3, name: "neo" },
+    { id: 4, name: "mmq" },
+    { id: 5, name: "dmu" },
+    { id: 6, name: "bro" },
+  ];
 
   return (
     <SetSelectorWrapper>
-      <li>
-        <input
-          type="radio"
-          name="setOption"
-          value="mid"
-          id="mid"
-          checked={setName === "mid"}
-          onChange={onSetChange}
-        />
-        <label htmlFor="mid">Mid</label>
-      </li>
-
-      <li>
-        <input
-          type="radio"
-          name="setOption"
-          value="khm"
-          id="khm"
-          checked={setName === "khm"}
-          onChange={onSetChange}
-        />
-        <label htmlFor="khm">khm</label>
-      </li>
-      
-      <li>
-        <input
-          type="radio"
-          name="setOption"
-          value="vow"
-          id="vow"
-          checked={setName === "vow"}
-          onChange={onSetChange}
-        />
-        <label htmlFor="vow">Vow</label>
-      </li>
+      {setList.map((set) => {
+        console.log(set.name);
+        return (
+          <li key={set.id}>
+            <input
+              type="radio"
+              name="setOption"
+              value={set.name}
+              id={set.name}
+              checked={setName === set.name}
+              onChange={onSetChange}
+            />
+            <label htmlFor={set.name}>{set.name}</label>
+          </li>
+        );
+      })}
       <p>Current set is {setName}</p>
     </SetSelectorWrapper>
   );
