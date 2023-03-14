@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SetColourWrapper } from "./ColourSelector.style";
 import w from "../../assets/1-White.svg";
 import u from "../../assets/2-Blue.svg";
@@ -17,34 +17,41 @@ import g from "../../assets/5-Green.svg";
 // console.log(wubrg);
 
 function ColourSelector() {
+  
+  const [checked, setChecked] = useState(false)
+
+  function isChecked() {
+    setChecked(checked)
+  }
+  
   return (
     <SetColourWrapper>
       <li>
-        <label for="w">
-          <input type="checkbox" name="colourOption" value="w" id="w" />
+        <label className={setChecked ? "labelItem" : "regular"} for="w">
+          <input checked="false" type="checkbox" name="colourOption" value="w" id="w" />
           <img src={w} alt="white" />
         </label>
       </li>
       <li>
-        <label for="u">
+        <label className={setChecked ? "labelItem" : "regular"} for="u">
           <input type="checkbox" name="colourOption" value="u" id="u" />
           <img src={u} alt="blue" />
         </label>
       </li>
       <li>
-        <label for="b">
+        <label className={setChecked ? "labelItem" : "regular"} for="b">
           <input type="checkbox" name="colourOption" value="b" id="b" />
           <img src={b} alt="black" />
         </label>
       </li>
       <li>
-        <label for="r">
+        <label className={setChecked ? "labelItem" : "regular"} for="r">
           <input type="checkbox" name="colourOption" value="r" id="r" />
           <img src={r} alt="red" />
         </label>
       </li>
       <li>
-        <label for="g">
+        <label className={setChecked ? "labelItem" : "regular"} for="g">
           <input type="checkbox" name="colourOption" value="g" id="g" />
           <img src={g} alt="green" />
         </label>
